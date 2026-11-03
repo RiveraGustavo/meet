@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Meeting Page</title>
+</head>
+
+<body>
+    <h1>Listado de reuniones</h1>
+    <ul>
+        <li th:each="meeting:${meetings}">
+            <span th:text="${meeting.name}">Nombre reunión</span> -
+            <span th:text="${meeting.date.toString()}">Fecha y hora</span>
+
+            <ol>
+                <li th:each="persona:${meeting.participants}">
+                    <span th:text="${persona.name}">Nombre participante</span> -
+                    <span th:text="${persona.email}">Correo electrónico</span>
+                </li>
+            </ol>
+        </li>
+    </ul>
+    <p>This is a simple meeting page!</p>
+</body>
+
+</html>
