@@ -7,7 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import co.spring_boot.meet.services.PersonaServices;
+import co.spring_boot.meet.services.PersonaService;
 
 @Component
 @Order (1)
@@ -15,7 +15,7 @@ public class DirectorioRunner implements CommandLineRunner {
     public static final Logger logger = LoggerFactory.getLogger(DirectorioRunner.class);
 
     @Autowired
-    private PersonaServices personaServices;
+    private PersonaService personaServices;
 
     @Override
     public void run(String... args) throws Exception {

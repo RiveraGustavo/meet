@@ -7,7 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import co.spring_boot.meet.services.MeetServices;
+import co.spring_boot.meet.services.MeetService;
 
 @Component
 @Order(2) 
@@ -15,7 +15,7 @@ public class AgendaRunner implements CommandLineRunner {
     private final Logger logger = LoggerFactory.getLogger(AgendaRunner.class);
 
     @Autowired
-    private MeetServices meetServices;
+    private MeetService meetServices;
     
     @Override
     public void run(String... args) throws Exception {

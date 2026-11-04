@@ -7,16 +7,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.spring_boot.meet.model.Meet;
-import co.spring_boot.meet.services.MeetServices;
+import co.spring_boot.meet.services.MeetService;
 
 
 @RestController 
 @RequestMapping("/api/meetings")
 public class MeetRestController {
 
-    private final MeetServices meetServices;
+    private final MeetService meetServices;
 
-    public MeetRestController(MeetServices meetServices) {
+    public MeetRestController(MeetService meetServices) {
         this.meetServices = meetServices;
     }
     

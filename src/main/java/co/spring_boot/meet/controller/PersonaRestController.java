@@ -7,16 +7,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.spring_boot.meet.model.Persona;
-import co.spring_boot.meet.services.PersonaServices;
+import co.spring_boot.meet.services.PersonaService;
 
 
 @RestController 
 @RequestMapping ("/api/personas")
 public class PersonaRestController {
 
-    private final PersonaServices personaServices;
+    private final PersonaService personaServices;
 
-    public PersonaRestController(PersonaServices personaServices) {
+    public PersonaRestController(PersonaService personaServices) {
         this.personaServices = personaServices;
     }
     

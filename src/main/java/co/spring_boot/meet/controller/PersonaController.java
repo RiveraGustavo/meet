@@ -6,14 +6,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import co.spring_boot.meet.services.PersonaServices;
+import co.spring_boot.meet.services.PersonaService;
 
 @Controller 
 @RequestMapping ("/personas")
 public class PersonaController {
     
     @Autowired 
-    private PersonaServices personaServices;
+    private PersonaService personaServices;
 
     @GetMapping
     public String getAllPersonas(Model model) {
