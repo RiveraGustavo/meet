@@ -11,6 +11,9 @@
 		<nav>
 			<a href="/index">Inicio</a>
 			<a href="/personas">Personas</a>
+			<form th:action="@{/logout}" method="post" style="display: inline;">
+				<button type="submit">Cerrar sesión</button>
+			</form>
 		</nav>
 	</header>
 
