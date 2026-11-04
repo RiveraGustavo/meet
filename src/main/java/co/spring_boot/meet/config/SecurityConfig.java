@@ -20,7 +20,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/**").hasRole("API_USER")
+                .requestMatchers("/api/*", "/api/rest/**").hasRole("API_USER")
                 .requestMatchers("/h2-console/**").permitAll()
                 .requestMatchers("/login_form").permitAll()
                 .anyRequest().authenticated()
@@ -46,10 +46,10 @@ public class SecurityConfig {
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails user = User.builder().username("admin")
-        .password(passwordEncoder().encode("password")).roles("USER", "API_USER")
+        .password(passwordEncoder().encode("123")).roles("USER", "API_USER")
         .build();
         UserDetails user1 = User.builder().username("user")
-        .password(passwordEncoder().encode("password1")).roles("USER")
+        .password(passwordEncoder().encode("123")).roles("USER")
         .build();
 
         return new InMemoryUserDetailsManager(user, user1);
