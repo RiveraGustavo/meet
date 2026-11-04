@@ -3,10 +3,34 @@ package co.spring_boot.meet.model;
 import java.util.Date;
 import java.util.List;
 
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
+
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.JoinColumn;
+
+@Entity 
+@Table(name = "reunion")
 public class Meet {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name = "asunto")
     private String name;
+    @Column(name = "fecha")
     private Date date;
+    
+    @ManyToMany
+    @JoinTable(
+        name = "asistente",
+        joinColumns = {@JoinColumn(name = "reunion_id")},
+        inverseJoinColumns = {@JoinColumn(name = "persona_id")}
+    )
     private List<Persona> participants;
     
     public Meet() {
