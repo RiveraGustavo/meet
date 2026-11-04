@@ -10,6 +10,7 @@ import co.spring_boot.meet.model.Meet;
 import co.spring_boot.meet.model.Persona;
 import co.spring_boot.meet.services.MeetService;
 import co.spring_boot.meet.services.PersonaService;
+import tools.jackson.core.JacksonException;
 import tools.jackson.databind.ObjectMapper;
 
 @Component
@@ -44,7 +45,7 @@ public class BuscarListener {
                  logger.info("Reunión: " + meet.get().getName() + " " + meet.get().getDate().toString());    
             }
            
-        }catch (Exception e){
+        }catch (JacksonException e){
             logger.error("Error al recibir el mensaje", e);
         }
     }

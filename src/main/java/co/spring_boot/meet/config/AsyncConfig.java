@@ -10,11 +10,16 @@ import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 
 import co.spring_boot.meet.async.BuscarListener;
 
 
 @Configuration
+@ConditionalOnProperty(
+    name = "app.rabbitmq.enabled",
+    havingValue = "true",
+    matchIfMissing = false)
 public class AsyncConfig {
     private static final String QUEUE_NAME = "busca-persona";
     private static final String EXCHANGE_NAME = "servicios";
