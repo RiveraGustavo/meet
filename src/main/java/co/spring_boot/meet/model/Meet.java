@@ -70,5 +70,7 @@ public class Meet {
     public void addParticipant(Persona participant) {
         this.participants.add(participant);
     }
-
+    public String toString() {
+        return "[id=" + id + ", name=" + name + ", date=" + date;
+    }
 }

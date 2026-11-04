@@ -75,4 +75,8 @@ public class Persona {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    public String toString() {
+        return "[id=" + id + ", name=" + name + ", secondName=" + secondName + ", email=" + email + ", phone=" + phone + "]";
+    }
 }
