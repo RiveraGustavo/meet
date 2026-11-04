@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import co.spring_boot.meet.Services.MeetServices;
+import co.spring_boot.meet.services.MeetServices;
 
 @Controller 
 @RequestMapping ("/meetings")

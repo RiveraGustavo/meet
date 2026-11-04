@@ -7,7 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import co.spring_boot.meet.Services.MeetServices;
+import co.spring_boot.meet.services.MeetServices;
 
 @Component
 @Order(2) 

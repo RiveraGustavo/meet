@@ -1,4 +1,4 @@
-package co.spring_boot.meet.Services;
+package co.spring_boot.meet.services;
 
 import java.util.List;
 
