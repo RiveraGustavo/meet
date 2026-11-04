@@ -6,14 +6,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import co.spring_boot.meet.services.MeetServices;
+import co.spring_boot.meet.services.MeetService;
 
 @Controller 
 @RequestMapping ("/meetings")
 public class MeetController {
 
     @Autowired
-    private MeetServices meetServices;
+    private MeetService meetServices;
 
     @GetMapping
     public String getAllMeetings(Model model) {
