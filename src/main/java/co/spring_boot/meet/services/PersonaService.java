@@ -8,15 +8,19 @@ import co.spring_boot.meet.data.PersonaRepository;
 import co.spring_boot.meet.model.Persona;
 
 @Service 
-public class PersonaServices {
+public class PersonaService {
 
     private final PersonaRepository personaRepository;
 
-    public PersonaServices(PersonaRepository personaRepository) {
+    public PersonaService(PersonaRepository personaRepository) {
         this.personaRepository = personaRepository;
     }
 
     public List<Persona> getAllPersonas() {
         return this.personaRepository.findAll();
+    }
+
+    public Persona getPersonaById(long id) {
+        return this.personaRepository.findById(id).orElse(null);
     }
 }
