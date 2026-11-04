@@ -1,6 +1,7 @@
 package co.spring_boot.meet.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,7 @@ public class PersonaService {
         return this.personaRepository.findAll();
     }
 
-    public Persona getPersonaById(long id) {
-        return this.personaRepository.findById(id).orElse(null);
+    public Optional<Persona> getPersonaById(long id) {
+        return this.personaRepository.findById(id);
     }
 }

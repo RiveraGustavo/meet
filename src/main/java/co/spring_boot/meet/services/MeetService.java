@@ -1,6 +1,7 @@
 package co.spring_boot.meet.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ public class MeetService {
     public List<Meet> getAllMeetings() {
         return this.meetRepository.findAll();
     }
-    public Meet getMeetById(long id) {
-        return this.meetRepository.findById(id).orElse(null);
+    public Optional<Meet> getMeetById(long id) {
+        return this.meetRepository.findById(id);
     }
 }

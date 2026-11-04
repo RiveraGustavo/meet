@@ -1,5 +1,7 @@
 package co.spring_boot.meet.async;
 
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -27,10 +29,21 @@ public class BuscarListener {
         try{
             logger.info("Mensaje recibido"); 
             InfoBuscar infoBuscar = objectMapper.readValue(mensaje, InfoBuscar.class);
-            Persona persona = personaService.getPersonaById(infoBuscar.getIdAsistente());   
-            Meet meet = meetService.getMeetById(infoBuscar.getIdReunion());
-            logger.info("Persona: " + persona.getName() + " " + persona.getSecondName());
-            logger.info("Reunión: " + meet.getName() + " " + meet.getDate().toString());    
+            Optional<Persona> persona = personaService.getPersonaById(infoBuscar.getIdAsistente());   
+            if(persona.isEmpty()){
+                logger.warn("No se encontró la persona con ID: " + infoBuscar.getIdAsistente());
+                return;
+            }
+            Optional<Meet> meet = meetService.getMeetById(infoBuscar.getIdReunion());
+            if(meet.isEmpty()){
+                logger.warn("No se encontró la reunión con ID: " + infoBuscar.getIdReunion());
+                return;
+            }
+            if(persona.isPresent() && meet.isPresent()){
+                 logger.info("Persona: " + persona.get().getName() + " " + persona.get().getSecondName());
+                 logger.info("Reunión: " + meet.get().getName() + " " + meet.get().getDate().toString());    
+            }
+           
         }catch (Exception e){
             logger.error("Error al recibir el mensaje", e);
         }
